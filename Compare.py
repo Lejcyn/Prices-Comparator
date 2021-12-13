@@ -6,9 +6,6 @@ mypath="Cities"
 
 files = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
-
-
-#files=['Barcelona.xlsx','London.xlsx','Insbruck.xlsx','Graz.xlsx','Vienna.xlsx','Milano.xlsx','Munich.xlsx','Berlin.xlsx','Zurich.xlsx','Newbury.xlsx','Manchester.xlsx']
 def CompareLivingCosts(file):
     #Read and Parse File
     df = pd.read_excel("Cities/"+file)
@@ -26,7 +23,6 @@ def CompareLivingCosts(file):
     AverageDifs=sum(Difs)/len(Difs)
     Salary=Salaries[0]
     #Printout the results
-    
     print(City+"\t") 
     print( "Living costs: "+str(AverageDifs) + "% Salary: " +str(int(Salary))+"%")
     TotalDif=float(Salary)-AverageDifs
