@@ -1,3 +1,5 @@
+
+#Comparison data taken from https://www.numbeo.com/cost-of-living/comparison.jsp
 import pandas as pd
 from os import listdir
 from os.path import isfile, join
@@ -16,19 +18,22 @@ def CompareLivingCosts(file):
     Differences=df["Difference"].astype(str).values.tolist()
     Salary=df["Salary"].astype(str).values.tolist()
     City=file.replace(".xlsx","")
+
     #Parse single records
     Salaries=Parse(Salary)
     Difs=Parse(Differences)
+
     #Calculate needed Values
     AverageDifs=sum(Difs)/len(Difs)
     Salary=Salaries[0]
+
     #Printout the results
     print(City+"\t") 
     print( "Living costs: "+str(AverageDifs) + "% Salary: " +str(int(Salary))+"%")
     TotalDif=float(Salary)-AverageDifs
     print("Total Living quality increase: "+ str(int(TotalDif))+"%\n\n")
 
-#Supportive repeating code
+#Supportive for repeating code
 def Parse(Records):
     list=[]
     for i in Records:
